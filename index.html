@@ -43,7 +43,7 @@ $("#hex-box").on("change keyup paste", function(){
     console.log(s);
 
     if (s.length >= 4){
-        s = fillZeros(s);
+        s = fillZeros(s,7);
         console.log("zeros added!");
         console.log(s);
         $("body").css({"background-color": s});
@@ -78,15 +78,32 @@ $("#hex-box").on("change keyup paste", function(){
 
 $("#rgb-box").on("change keyup paste", function(){
     console.log("rgb box was changed");
-    // Test code to see if event worked
-    // var node = document.createElement("h1");
-    // var textnode = document.createTextNode("Water");
-    // node.appendChild(textnode);
-    // document.getElementById("container").appendChild(node);
+    var s = document.getElementById('rgb-box').value;
+    console.log(s);
+    var firstComma = s.indexOf(",");
+    var secondComma = s.lastIndexOf(",");
+    var openP = s.indexOf("(");
+    var closedP = s.indexOf(")");
+    var r = parseInt(s.slice(openP+1, firstComma));
+    var g = parseInt(s.slice(firstComma+1, secondComma));
+    var b = parseInt(s.slice(secondComma+1, closedP));
+
+    if (r > 255 || g > 255 || b > 255 || isNaN(r) || isNaN(g) || isNaN(b)){
+        document.getElementById('hex-box').value = "hex";
+    } else {
+        r = fillZeros(r.toString(16), 2);
+        g = fillZeros(g.toString(16), 2);
+        b = fillZeros(b.toString(16), 2);
+        document.getElementById('hex-box').value = "#"+r+b+g;
+    }
+
+    console.log(r);
+    console.log(g);
+    console.log(b);
 })
 
-function fillZeros (s){
-    while (s.length < 7){
+function fillZeros (s, n){
+    while (s.length < n){
         s = s + '0'
     }
     return s;
