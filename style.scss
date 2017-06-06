@@ -1,23 +1,34 @@
-$font-stack:   "Josefin Sans", sans-serif;
 $primary-color: #333;
+$background-color: lightgray;
 
 body {
-  font: 100% $font-stack;
+  font-family: "Josefin Sans";
+  background-color: $background-color;
   color: $primary-color;
   letter-spacing: 10px;
+  padding: 100px;
+  font-size: 50px;
+}
+
+h1{
+    font-size: 80px;
 }
 
 form{
-    width: 200px;
+    width: 300px;
     margin: auto;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -70px 0 0 -105px;
+    margin: -70px 0 0 -155px;
 }
 input{
-    // border: 0px solid black;
     display: block;
-    width: 200px;
+    width: 300px;
     margin: 0 auto;
+    font-size: 40px;
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: $background-color;
+    outline: none;
 }

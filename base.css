@@ -1,19 +1,30 @@
 body {
-  font: 100% "Josefin Sans", sans-serif;
+  font-family: "Josefin Sans";
+  background-color: lightgray;
   color: #333;
-  letter-spacing: 10px; }
+  letter-spacing: 10px;
+  padding: 100px;
+  font-size: 50px; }
+
+h1 {
+  font-size: 80px; }
 
 form {
-  width: 200px;
+  width: 300px;
   margin: auto;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -70px 0 0 -105px; }
+  margin: -70px 0 0 -155px; }
 
 input {
   display: block;
-  width: 200px;
-  margin: 0 auto; }
+  width: 300px;
+  margin: 0 auto;
+  font-size: 40px;
+  border: none;
+  border-bottom: 2px solid black;
+  background-color: lightgray;
+  outline: none; }
 
 /*# sourceMappingURL=base.css.map */

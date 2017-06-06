@@ -2,16 +2,17 @@
 <html>
 
 <head>
-    <!-- Typeface from Google Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-    <!-- Style sheet, compliled to CSS from SASS -->
-    <link rel="stylesheet" type="text/css" href="base.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Typeface from Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <!-- Style sheet, compliled to CSS from SASS -->
+    <link rel="stylesheet" type="text/css" href="base.css">
+
 </head>
 
 <body>
@@ -20,21 +21,14 @@
     <h1>COLORS</h1>
 
     <form>
-        <input id="hex-box" type="text" name="hex" value="hex">
-        <input id="rgb-box" type="text" name="rbg" value="rgb">
+        <input id="hex-box" type="text" name="hex" value="hex" spellcheck="false">
+        <input id="rgb-box" type="text" name="rbg" value="rgb" spellcheck="false">
     </form>
 
   </div>
 
 
 <script>
-function fillZeros (s){
-    while (s.length < 7){
-        s = s + '0'
-    }
-    return s;
-}
-
 $("#hex-box").on("change keyup paste", function(){
     console.log("hex box was changed");
     var s = document.getElementById('hex-box').value;
@@ -51,6 +45,40 @@ $("#hex-box").on("change keyup paste", function(){
         console.log("zeros added!");
         console.log(s);
         $("body").css({"background-color": s});
+        $("#hex-box").css({"background-color": s});
+        $("#rgb-box").css({"background-color": s});
+
+        // Make conversion to RGB
+
+        var rStr = "" + s[1] + s[2];
+        var gStr = "" + s[3] + s[4];
+        var bStr = "" + s[5] + s[6];
+
+        // console.log(rStr);
+        // console.log(gStr);
+        // console.log(bStr);
+
+        var r = parseInt(rStr, 16);
+        var g = parseInt(gStr, 16);
+        var b = parseInt(bStr, 16);
+
+        // console.log(r);
+        // console.log(g);
+        // console.log(b);
+
+        if (r !== NaN && g !== NaN && b !== NaN){
+            document.getElementById('rgb-box').value = "rgb("+r+","+g+","+b+")";
+        } else {
+            document.getElementById('rgb-box').value = "rgb";
+        }
+
+    }
+    else{
+        s = "lightgray";
+        $("body").css({"background-color": s});
+        $("#hex-box").css({"background-color": s});
+        $("#rgb-box").css({"background-color": s});
+        document.getElementById('rgb-box').value = "rgb";
     }
     // Test code to see if event worked
     // var node = document.createElement("h1");
@@ -68,6 +96,13 @@ $("#rgb-box").on("change keyup paste", function(){
     // node.appendChild(textnode);
     // document.getElementById("container").appendChild(node);
 })
+
+function fillZeros (s){
+    while (s.length < 7){
+        s = s + '0'
+    }
+    return s;
+}
 </script>
 
 </body>
