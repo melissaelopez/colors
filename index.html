@@ -17,8 +17,8 @@
 
 <body>
 
-  <div id="container" class="container-fluid text-center">
-    <h1>COLORS</h1>
+  <div id="container" class="container-fluid">
+    <h1>COLORS COPYYY</h1>
 
     <form>
         <input id="hex-box" type="text" name="hex" value="hex" spellcheck="false">
@@ -45,8 +45,6 @@ $("#hex-box").on("change keyup paste", function(){
         console.log("zeros added!");
         console.log(s);
         $("body").css({"background-color": s});
-        $("#hex-box").css({"background-color": s});
-        $("#rgb-box").css({"background-color": s});
 
         // Make conversion to RGB
 
@@ -54,38 +52,26 @@ $("#hex-box").on("change keyup paste", function(){
         var gStr = "" + s[3] + s[4];
         var bStr = "" + s[5] + s[6];
 
-        // console.log(rStr);
-        // console.log(gStr);
-        // console.log(bStr);
-
         var r = parseInt(rStr, 16);
         var g = parseInt(gStr, 16);
         var b = parseInt(bStr, 16);
 
-        // console.log(r);
-        // console.log(g);
-        // console.log(b);
+        console.log(r);
+        console.log(g);
+        console.log(b);
 
-        if (r !== NaN && g !== NaN && b !== NaN){
-            document.getElementById('rgb-box').value = "rgb("+r+","+g+","+b+")";
-        } else {
+        if(isNaN(r) || isNaN(g) || isNaN(b)){
             document.getElementById('rgb-box').value = "rgb";
+        } else {
+            document.getElementById('rgb-box').value = "rgb("+r+","+g+","+b+")";
         }
 
     }
     else{
-        s = "lightgray";
+        s = "#ff7785";
         $("body").css({"background-color": s});
-        $("#hex-box").css({"background-color": s});
-        $("#rgb-box").css({"background-color": s});
         document.getElementById('rgb-box').value = "rgb";
     }
-    // Test code to see if event worked
-    // var node = document.createElement("h1");
-    // var textnode = document.createTextNode("Water");
-    // node.appendChild(textnode);
-    // document.getElementById("container").appendChild(node);
-
 })
 
 $("#rgb-box").on("change keyup paste", function(){

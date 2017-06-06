@@ -1,13 +1,12 @@
 body {
   font-family: "Josefin Sans";
-  background-color: lightgray;
+  background-color: #ff7785;
   color: #333;
   letter-spacing: 10px;
-  padding: 100px;
   font-size: 50px; }
 
 h1 {
-  font-size: 80px; }
+  font-size: 20px; }
 
 form {
   width: 300px;
@@ -24,7 +23,7 @@ input {
   font-size: 40px;
   border: none;
   border-bottom: 2px solid black;
-  background-color: lightgray;
+  background-color: transparent;
   outline: none; }
 
 /*# sourceMappingURL=base.css.map */
