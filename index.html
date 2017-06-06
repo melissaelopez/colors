@@ -2,34 +2,71 @@
 <html>
 
 <head>
-  <!-- Style sheet, compliled to CSS from SASS-->
-  <link rel="stylesheet" type="text/css" href="base.css">
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Typeface from Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <!-- Style sheet, compliled to CSS from SASS -->
+    <link rel="stylesheet" type="text/css" href="base.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
   <div id="container" class="container-fluid text-center">
     <h1>COLORS</h1>
+
     <form>
-        <input id="hex" type="text" name="hex" value="hex">
-        <input id="rgb" type="text" name="rbg" value="rgb">
+        <input id="hex-box" type="text" name="hex" value="hex">
+        <input id="rgb-box" type="text" name="rbg" value="rgb">
     </form>
+
   </div>
 
 
 <script>
-$("#hex").on("change keyup paste", function(){
-    var node = document.createElement("h1");
-    var textnode = document.createTextNode("Water");
-    node.appendChild(textnode);
-    document.getElementById("container").appendChild(node);
+function fillZeros (s){
+    while (s.length < 7){
+        s = s + '0'
+    }
+    return s;
+}
 
+$("#hex-box").on("change keyup paste", function(){
+    console.log("hex box was changed");
+    var s = document.getElementById('hex-box').value;
+
+    // Format input string to include a hash sign if not already there
+    if (s.charAt(0) !== '#'){
+        s = '#' + s;
+    }
+
+    console.log(s);
+
+    if (s.length >= 4){
+        s = fillZeros(s);
+        console.log("zeros added!");
+        console.log(s);
+        $("body").css({"background-color": s});
+    }
+    // Test code to see if event worked
+    // var node = document.createElement("h1");
+    // var textnode = document.createTextNode("Water");
+    // node.appendChild(textnode);
+    // document.getElementById("container").appendChild(node);
+
+})
+
+$("#rgb-box").on("change keyup paste", function(){
+    console.log("rgb box was changed");
+    // Test code to see if event worked
+    // var node = document.createElement("h1");
+    // var textnode = document.createTextNode("Water");
+    // node.appendChild(textnode);
+    // document.getElementById("container").appendChild(node);
 })
 </script>
 

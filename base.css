@@ -1,6 +1,19 @@
 body {
-  font: 100% Helvetica, sans-serif;
+  font: 100% "Josefin Sans", sans-serif;
   color: #333;
   letter-spacing: 10px; }
+
+form {
+  width: 200px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -70px 0 0 -105px; }
+
+input {
+  display: block;
+  width: 200px;
+  margin: 0 auto; }
 
 /*# sourceMappingURL=base.css.map */
