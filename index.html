@@ -33,7 +33,6 @@
 
 <script>
 $("#hex-box").on("change keyup paste", function(){
-    console.log("hex box was changed");
     var s = document.getElementById('hex-box').value;
 
     // Format input string to include a hash sign if not already there
@@ -41,12 +40,8 @@ $("#hex-box").on("change keyup paste", function(){
         s = '#' + s;
     }
 
-    console.log(s);
-
     if (s.length >= 4 && s.length <= 7){
         s = fillZeros(s,7);
-        console.log("zeros added!");
-        console.log(s);
         $("body").css({"background-color": s});
 
         // Check if any bad characters are in string s
@@ -55,7 +50,6 @@ $("#hex-box").on("change keyup paste", function(){
         var exp = /^[0-9a-z]+$/;
         for (var i = 1; i < s.length; i++){
             if (badChars.includes(s[i]) || (!s[i].match(exp))){
-                console.log("YOU HAVE A BAD CHARACTER HERE");
                 carryOn = false;
                 break;
             }
@@ -63,23 +57,13 @@ $("#hex-box").on("change keyup paste", function(){
 
         if (carryOn){
             // Make conversion to RGB
-
             var rStr = "" + s[1] + s[2];
             var gStr = "" + s[3] + s[4];
             var bStr = "" + s[5] + s[6];
 
-
             var r = parseInt(rStr, 16);
             var g = parseInt(gStr, 16);
             var b = parseInt(bStr, 16);
-
-            console.log(rStr);
-            console.log(gStr);
-            console.log(bStr);
-
-            console.log(r);
-            console.log(g);
-            console.log(b);
 
             if(isNaN(r) || isNaN(g) || isNaN(b)){
                 document.getElementById('rgb-box').value = "rgb";
@@ -100,9 +84,7 @@ $("#hex-box").on("change keyup paste", function(){
 })
 
 $("#rgb-box").on("change keyup paste", function(){
-    console.log("rgb box was changed");
     var s = document.getElementById('rgb-box').value;
-    console.log(s);
     var firstComma = s.indexOf(",");
     var secondComma = s.lastIndexOf(",");
     var openP = s.indexOf("(");
@@ -123,10 +105,6 @@ $("#rgb-box").on("change keyup paste", function(){
         document.getElementById('hex-box').value = s;
         $("body").css({"background-color": s});
     }
-
-    console.log(r);
-    console.log(g);
-    console.log(b);
 })
 
 function fillZeros (s, n){
