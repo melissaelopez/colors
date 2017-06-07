@@ -8,11 +8,16 @@ body {
 h1 {
   font-size: 20px; }
 
+h1.padded {
+  padding-top: 500px;
+  text-align: center;
+  letter-spacing: 0px; }
+
 h2 {
   font-size: 11px;
   position: absolute;
   bottom: 5%;
-  right: 40%; }
+  right: 5%; }
 
 h3 {
   font-size: 11px;
@@ -24,8 +29,8 @@ p {
   font-size: 11px;
   color: #333;
   position: absolute;
-  bottom: 11%;
-  right: 10%;
+  bottom: 5%;
+  right: 5%;
   display: inline; }
 
 a {
@@ -82,9 +87,11 @@ canvas {
   position: absolute;
   top: 20%;
   left: 45%;
-  margin: -20px 0 0 -200px; }
+  margin: -20px 0 0 -200px;
+  display: block; }
 
 canvas.main {
-  border: 1px solid #000000; }
+  width: 400px;
+  height: 400px; }
 
 /*# sourceMappingURL=base.css.map */
