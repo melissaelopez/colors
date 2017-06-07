@@ -42,7 +42,7 @@ $("#hex-box").on("change keyup paste", function(){
 
     console.log(s);
 
-    if (s.length >= 4){
+    if (s.length >= 4 && s.length <= 7){
         s = fillZeros(s,7);
         console.log("zeros added!");
         console.log(s);
@@ -90,11 +90,15 @@ $("#rgb-box").on("change keyup paste", function(){
 
     if (r > 255 || g > 255 || b > 255 || isNaN(r) || isNaN(g) || isNaN(b)){
         document.getElementById('hex-box').value = "hex";
+        s = "#ff7785";
+        $("body").css({"background-color": s});
     } else {
         r = fillZeros(r.toString(16), 2);
         g = fillZeros(g.toString(16), 2);
         b = fillZeros(b.toString(16), 2);
-        document.getElementById('hex-box').value = "#"+r+b+g;
+        s = "#"+r+b+g;
+        document.getElementById('hex-box').value = s;
+        $("body").css({"background-color": s});
     }
 
     console.log(r);
