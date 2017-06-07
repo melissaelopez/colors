@@ -13,10 +13,66 @@ h1{
     font-size: 20px;
 }
 h2{
-    font-size: 15px;
+    font-size: 11px;
     position: absolute;
     bottom: 5%;
     right: 40%;
+}
+h3{
+    font-size: 11px;
+    position: absolute;
+    bottom: 9%;
+    right: 40%;
+}
+
+// Animated Underline
+
+p{
+    font-size: 11px;
+    color: $primary-color;
+    position: absolute;
+    bottom: 11%;
+    right: 40%;
+    display: inline;
+}
+
+a {
+    // font-size: 11px;
+    text-decoration: none;
+    color: $primary-color;
+    position: relative;
+    transition: all 0.2s ease-in;
+    font-size: 11px;
+    // position: absolute;
+    // bottom: 11%;
+    // right: 40%;
+    // display: inline;
+}
+
+a:hover{
+    text-decoration: none;
+    color: white;
+    cursor: default;
+}
+a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -50%;
+    left: 0;
+    background-color: white;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+a:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
 }
 
 form{
