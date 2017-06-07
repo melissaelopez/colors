@@ -32,7 +32,7 @@ p{
     color: $primary-color;
     position: absolute;
     bottom: 11%;
-    right: 40%;
+    right: 10%;
     display: inline;
 }
 
@@ -92,4 +92,15 @@ input{
     border-bottom: .5px dotted black;
     background-color: transparent;
     outline: none;
+}
+canvas {
+    margin: auto;
+    position: absolute;
+    top: 20%;
+    left: 45%;
+    margin: -20px 0 0 -200px;
+}
+
+canvas.main{
+    border: 1px solid #000000;
 }
